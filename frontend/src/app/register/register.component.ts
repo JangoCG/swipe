@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserControllerService} from "../services/user-controller.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private readonly userService: UserService) {
+
   }
 
   ngOnInit(): void {
@@ -22,7 +25,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): any {
     this.userForm.valid ? console.log('User Form is Valid') : console.log('user form is not valid');
-    console.log(this.userForm.value.emailKey);
-    console.log(this.userForm.value.passwordKey);
+    const {emailKey, passwordKey} = this.userForm.value;
+    console.log(emailKey);
+    console.log(passwordKey);
+     this.userService.registerUser(emailKey, passwordKey);
   }
 }
