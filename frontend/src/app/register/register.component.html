@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <!--      https://blog.jscrambler.com/building-user-registration-form-with-reactive-forms-in-angular-7/-->
+      <form [formGroup]=userForm (ngSubmit)="onSubmit()">
+        <h1>test</h1>
+        <div class="form-group">
+          <label for="emailField">Email adress</label>
+          <input type="text" class="form-control" id="emailField" placeholder="Enter email"
+                 formControlName="emailKey">
+          <label for="passwordField">Password</label>
+          <input type="password" class="form-control" id="passwordField"
+                 placeholder="Enter password" formControlName="passwordKey">
+        </div>
+        <button class="btn btn-primary">Register</button>
+      </form>
+
+    </div>
+  </div>
+</div>

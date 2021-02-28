@@ -1,3 +1,5 @@
 backend/wrapper/gradle-wrapper.jar
 backend/.gradle
 .idea
+frontend/node_modules
+frontend/package-lock.json
