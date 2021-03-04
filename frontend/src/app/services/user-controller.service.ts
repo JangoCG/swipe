@@ -10,10 +10,11 @@ export class UserControllerService {
 
 
   registerUser(user: string, email: string) {
-    return this.http.post("/users", {
-      user,
-      email
-    })
+    // return this.http.post("/users", {
+    //   user,
+    //   email
+    // })
+    return this.http.get("/users");
 
   }
 }

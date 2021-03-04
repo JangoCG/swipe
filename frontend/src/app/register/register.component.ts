@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserControllerService} from "../services/user-controller.service";
-import {UserService} from "../services/user.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,7 @@ import {UserService} from "../services/user.service";
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private readonly userService: UserService) {
+  constructor(private fb: FormBuilder, private readonly userControllerService: UserControllerService) {
 
   }
 
@@ -28,6 +28,8 @@ export class RegisterComponent implements OnInit {
     const {emailKey, passwordKey} = this.userForm.value;
     console.log(emailKey);
     console.log(passwordKey);
-     this.userService.registerUser(emailKey, passwordKey);
+     this.userControllerService.registerUser(emailKey, passwordKey).pipe(tap
+     (item => console.log(item))).subscribe()
+   //   this.store.pipe(tap(storeData=>console.log("hifromcengiz"))).subscribe;
   }
 }
