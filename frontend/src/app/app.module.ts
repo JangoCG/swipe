@@ -6,7 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LadderComponent } from './ladder/ladder.component';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { RoomComponent } from './room/room.component'
 
 const routes: Routes = [
   { path: 'ladder', component: LadderComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     RegisterComponent,
-    LadderComponent
+    LadderComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

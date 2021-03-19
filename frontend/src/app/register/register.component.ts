@@ -18,8 +18,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     // create the formgroup here with the group method of the form builder
     this.userForm = this.fb.group({
-      emailKey: ['', [Validators.required]],
-      passwordKey: ['', [Validators.required]],
+      // emailKey: ['', [Validators.required]],
+      // passwordKey: ['', [Validators.required]],
+      emailKey: [''],
+      passwordKey: [''],
     });
   }
 

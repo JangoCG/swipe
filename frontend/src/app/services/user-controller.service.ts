@@ -14,7 +14,7 @@ export class UserControllerService {
     //   user,
     //   email
     // })
-    return this.http.get("/users");
+    return this.http.get("/api/users");
 
   }
 }
