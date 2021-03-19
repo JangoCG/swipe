@@ -25,10 +25,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): any {
     this.userForm.valid ? console.log('User Form is Valid') : console.log('user form is not valid');
-    const {emailKey, passwordKey} = this.userForm.value;
-    console.log(emailKey);
-    console.log(passwordKey);
-     this.userControllerService.registerUser(emailKey, passwordKey).pipe(tap
+    const {email, password} = this.userForm.value;
+    console.log(email);
+    console.log(password);
+     this.userControllerService.registerUser(email, password).pipe(tap
      (item => console.log(item))).subscribe()
   }
 }
