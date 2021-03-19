@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {UserDto} from "../model/UserDto";
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,10 @@ export class UserControllerService {
 
   constructor(private readonly http: HttpClient) { }
 
-
-  registerUser(user: string, email: string) {
-    // return this.http.post("/users", {
-    //   user,
-    //   email
-    // })
-    return this.http.get("/api/users");
-
+  registerUser(userDto: UserDto) {
+    return this.http.post("/api/users", {
+      email,
+      password
+    })
   }
 }

@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // create the formgroup here with the group method of the form builder
+    // create the formgroup here and assign the keys in the html template as formControlName
     this.userForm = this.fb.group({
       email: [''],
       password: [''],
@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
     const {email, password} = this.userForm.value;
     console.log(email);
     console.log(password);
+     //TODO change params to pass a UserDto
      this.userControllerService.registerUser(email, password).pipe(tap
      (item => console.log(item))).subscribe()
   }
