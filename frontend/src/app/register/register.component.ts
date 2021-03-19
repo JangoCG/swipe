@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserControllerService} from "../services/user-controller.service";
 import {tap} from "rxjs/operators";
 
@@ -18,10 +18,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     // create the formgroup here with the group method of the form builder
     this.userForm = this.fb.group({
-      // emailKey: ['', [Validators.required]],
-      // passwordKey: ['', [Validators.required]],
-      emailKey: [''],
-      passwordKey: [''],
+      email: [''],
+      password: [''],
     });
   }
 
@@ -32,6 +30,5 @@ export class RegisterComponent implements OnInit {
     console.log(passwordKey);
      this.userControllerService.registerUser(emailKey, passwordKey).pipe(tap
      (item => console.log(item))).subscribe()
-   //   this.store.pipe(tap(storeData=>console.log("hifromcengiz"))).subscribe;
   }
 }
