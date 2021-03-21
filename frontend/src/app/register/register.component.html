@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+<!--    Bind HTML template to reactive form  -->
+      <form [formGroup]=userForm (ngSubmit)="onSubmit()">
+        <h1>Register</h1>
+        <div class="form-group">
+          <label for="emailField">Email adress</label>
+          <input type="text" class="form-control" id="emailField" placeholder="Enter email"
+                 formControlName="email">
+          <label for="passwordField">Password</label>
+          <!--          in formControlName the html template gets connected to the created form-->
+          <input type="password" class="form-control" id="passwordField"
+                 placeholder="Enter password" formControlName="password">
+        </div>
+        <button class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
