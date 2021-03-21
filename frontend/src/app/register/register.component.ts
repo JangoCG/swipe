@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // create the formgroup here and assign the keys in the html template as formControlName
+    // setup the reactive form and assign the keys in the html template as formControlName
     this.userForm = this.fb.group({
       email: [''],
       password: [''],
