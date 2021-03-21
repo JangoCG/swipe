@@ -4,7 +4,6 @@ import backend.jango.backend.model.dto.UserDto;
 import backend.jango.backend.model.entity.User;
 import backend.jango.backend.model.mapper.UserMapper;
 import backend.jango.backend.model.repository.UserRepository;
-import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -19,16 +18,9 @@ public class UserService {
    * Safe a new user in the db
    */
   public UserDto registerUser(UserDto userDto) {
-    User user = userMapper.toUser(userDto);
-    System.out.println(user);
-    User testUser = new User();
-    UUID uuid = UUID.randomUUID();
-    testUser.setEmail("testMail");
-    testUser.setPassword("testPw");
-    testUser.setId(uuid);
-    userRepository.save(testUser);
-    userRepository.save(user);
-    System.out.println("hi test");
-    return userDto;
+    User user = userMapper.userDtoToUser(userDto);
+    user = userRepository.save(user);
+    System.out.println("email of saved user is: " + user.getEmail());
+    return userMapper.userToUserDto(user);
   }
 }

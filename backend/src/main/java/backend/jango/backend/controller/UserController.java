@@ -23,7 +23,6 @@ public class UserController {
 
   @PostMapping
   public UserDto registerUser(@RequestBody UserDto userDto) {
-     userService.registerUser(userDto);
-    return userDto;
+    return userService.registerUser(userDto);
   }
 }
