@@ -7,10 +7,12 @@ import {UserDto} from "../model/UserDto";
 })
 export class UserControllerService {
 
+  private baseURI = "/api/users";
+
   constructor(private readonly http: HttpClient) { }
 
-  registerUser(userDto: UserDto) {
-    return this.http.post("/api/users", {
+  registerUser(email: string, password: string) {
+    return this.http.post<UserDto>(this.baseURI, {
       email,
       password
     })
