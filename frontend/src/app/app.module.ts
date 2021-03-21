@@ -2,22 +2,22 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {RegisterComponent} from './register/register.component';
+import {RegisterComponent} from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {LadderComponent} from './ladder/ladder.component';
 import {RouterModule, Routes} from '@angular/router';
+import {RoomComponent} from './components/room/room.component';
 
 const routes: Routes = [
-  { path: 'ladder', component: LadderComponent },
   { path: 'register', component: RegisterComponent },
+  {path: 'room', component: RoomComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LadderComponent,
+    RoomComponent,
   ],
   imports: [
     BrowserModule,
