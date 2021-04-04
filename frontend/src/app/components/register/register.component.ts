@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserControllerService} from "../../services/user-controller.service";
+import {Router} from "@angular/router";
+import {Store} from "@ngrx/store";
+import {createAddUserAction} from "../../flux/actions/user.actions";
+
 
 @Component({
   selector: 'app-register',
@@ -10,9 +14,15 @@ import {UserControllerService} from "../../services/user-controller.service";
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private readonly userControllerService: UserControllerService) {
+  constructor(
+    private fb: FormBuilder,
+    private readonly userControllerService: UserControllerService,
+    private readonly router: Router,
+    private store: Store<{ test: string }>
+  ) {
 
   }
+
 
   ngOnInit(): void {
     // setup the reactive form and assign the keys in the html template as formControlName
@@ -24,8 +34,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): any {
     const {email, password} = this.userForm.value;
-     // this.userControllerService.registerUser(email, password).pipe(tap
-     // (item => console.log(item))).subscribe()
+    // this.userControllerService.registerUser(email, password).pipe(tap
+    // (item => console.log(item))).subscribe()
+    // this.router.navigateByUrl("/room");
+    this.store.dispatch(createAddUserAction(email));
     this.userControllerService.registerUser(email, password).subscribe();
   }
 }
