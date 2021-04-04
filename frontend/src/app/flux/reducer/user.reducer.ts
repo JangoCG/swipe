@@ -1,14 +1,13 @@
 import {AddUserAction, UserActionTypes} from "../actions/user.actions";
+import {StateTemplate} from "../app.state";
 
-export const initialState: State = {
+
+export const initialState: StateTemplate = {
   users: []
 };
 
-export interface State {
-  users: [];
-}
 
-export function userReducer(state: State = initialState, action: AddUserAction) {
+export function userReducer(state: StateTemplate = initialState, action: AddUserAction) {
   switch (action.type) {
     case UserActionTypes.UserAdded:
       return {

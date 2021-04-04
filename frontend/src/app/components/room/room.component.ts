@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {UserService} from "../../services/user.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-room',
@@ -7,9 +10,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RoomComponent implements OnInit {
 
-  constructor() { }
+  users$: Observable<any>
+
+  constructor(private readonly userService: UserService) {
+  }
 
   ngOnInit(): void {
+    this.users$ = this.userService.users$;
+    this.users$.pipe(tap(item => console.log(item))).subscribe()
   }
 
 }
