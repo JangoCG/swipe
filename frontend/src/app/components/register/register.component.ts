@@ -37,8 +37,6 @@ export class RegisterComponent implements OnInit {
     // this.userControllerService.registerUser(email, password).pipe(tap
     // (item => console.log(item))).subscribe()
     this.router.navigateByUrl("/room");
-    let dummyData = ["john doe", "doe john", "dieter demo", "francis ngannou", "mike tyson"]
-    dummyData.forEach(user => this.store.dispatch(createAddUserAction(user)))
     this.store.dispatch(createAddUserAction(email));
     this.userControllerService.registerUser(email, password).subscribe();
   }

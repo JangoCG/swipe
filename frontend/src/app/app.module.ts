@@ -11,6 +11,9 @@ import {StoreModule} from "@ngrx/store";
 import {userReducer} from "./flux/reducer/user.reducer";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {ControlPanelComponent} from './components/control-panel/control-panel.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -22,6 +25,7 @@ const routes: Routes = [
     AppComponent,
     RegisterComponent,
     RoomComponent,
+    ControlPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ const routes: Routes = [
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    FontAwesomeModule,
 
   ],
   providers: [],
