@@ -1,0 +1,13 @@
+.push-to-bottom {
+  position: absolute;
+  bottom: 0
+}
+.icon {
+  margin-left: 50%;
+  color:whitesmoke;
+}
+
+.control-panel {
+  background-color: #282A35;
+}
+

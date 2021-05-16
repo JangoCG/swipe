@@ -35,8 +35,8 @@ export class RegisterComponent implements OnInit {
     const {name} = this.userForm.value;
     // this.userControllerService.registerUser(email, password).pipe(tap
     // (item => console.log(item))).subscribe()
-    this.router.navigateByUrl("/room");
     this.store.dispatch(createAddUserAction(name));
     this.userControllerService.registerUser(name).subscribe();
+    this.router.navigateByUrl("/room");
   }
 }
