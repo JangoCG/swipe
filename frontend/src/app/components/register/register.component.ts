@@ -27,17 +27,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     // setup the reactive form and assign the keys in the html template as formControlName
     this.userForm = this.fb.group({
-      email: [''],
-      password: [''],
+      name: [''],
     });
   }
 
   onSubmit(): any {
-    const {email, password} = this.userForm.value;
+    const {name} = this.userForm.value;
     // this.userControllerService.registerUser(email, password).pipe(tap
     // (item => console.log(item))).subscribe()
     this.router.navigateByUrl("/room");
-    this.store.dispatch(createAddUserAction(email));
-    this.userControllerService.registerUser(email, password).subscribe();
+    this.store.dispatch(createAddUserAction(name));
+    this.userControllerService.registerUser(name).subscribe();
   }
 }

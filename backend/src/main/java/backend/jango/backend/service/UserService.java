@@ -20,7 +20,7 @@ public class UserService {
   public UserDto registerUser(UserDto userDto) {
     User user = userMapper.userDtoToUser(userDto);
     user = userRepository.save(user);
-    System.out.println("email of saved user is: " + user.getEmail());
+    System.out.println("name of saved user is: " + user.getName());
     return userMapper.userToUserDto(user);
   }
 }

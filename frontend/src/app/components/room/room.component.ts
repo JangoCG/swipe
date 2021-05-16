@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {UserService} from "../../services/user.service";
 import {tap} from "rxjs/operators";
-import {createAddUserAction} from "../../flux/actions/user.actions";
 import {AppState} from "../../flux/app.state";
 import {Store} from "@ngrx/store";
 
@@ -20,8 +19,8 @@ export class RoomComponent implements OnInit {
 
   ngOnInit(): void {
     // populate store with dummy data
-    let dummyData = ["john doe", "doe john", "dieter demo", "francis ngannou", "mike tyson"]
-    dummyData.forEach(user => this.store.dispatch(createAddUserAction(user)))
+    // let dummyData = ["john doe", "doe john", "dieter demo", "francis ngannou", "mike tyson"]
+    // dummyData.forEach(user => this.store.dispatch(createAddUserAction(user)))
 
     this.users$ = this.userService.users$;
     this.users$.pipe(tap(item => console.log(item))).subscribe()

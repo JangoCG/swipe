@@ -11,10 +11,9 @@ export class UserControllerService {
 
   constructor(private readonly http: HttpClient) { }
 
-  registerUser(email: string, password: string) {
+  registerUser(email: string) {
     return this.http.post<UserDto>(this.baseURI, {
       email,
-      password
     })
   }
 }

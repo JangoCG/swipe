@@ -1,13 +1,10 @@
 package backend.jango.backend.model.entity;
 
-import java.util.UUID;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -20,9 +17,5 @@ public class User {
   private UUID id;
 
   @Column
-  private String email;
-
-  @Column
-  private String password;
-
+  private String name;
 }
